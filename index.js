@@ -2,20 +2,20 @@
 let userString1;
 let userString2;
 let functionCounter = 0;
-let inputWord1 = "Place your first word here:";
-let inputWord2 = "Place your second word here:";
+const inputWord1 = "Place your first word here:";
+const inputWord2 = "Place your second word here:";
 /* USER INPUT STRING DISPLAY */
-let equalLengthWords = "The words are the same length.";
-let differentLengthWords = "The words are not the same length.";
-let equalLengthStr = "The sentences are the same length.";
-let differentLengthStr = "The sentences are not the same length.";
-let sameInputLength = "Your inputs are the same length";
-let differentInputLength = "Your inputs are not the same length";
-let wordMessage = "Your word was:";
-let stringMessage = "Your sentence was:";
-let stringLengthMessage = "Letter count:";
+const equalLengthWords = "The words are the same length.";
+const differentLengthWords = "The words are not the same length.";
+const equalLengthStr = "The sentences are the same length.";
+const differentLengthStr = "The sentences are not the same length.";
+const sameInputLength = "Your inputs are the same length";
+const differentInputLength = "Your inputs are not the same length";
+const wordMessage = "Your word was:";
+const stringMessage = "Your sentence was:";
+const stringLengthMessage = "Letter count:";
 /* ERROR/SUCCESS VARIABLES */
-let errorString = "Wrong input";
+const errorString = "Wrong input";
 let successInput = 0;
 /* LENGTH VARIABLES */
 let letterCountString1; 
