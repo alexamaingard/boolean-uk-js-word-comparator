@@ -1,61 +1,36 @@
+/* USER INPUT VARIABLES */
 let userString1;
 let userString2;
 let functionCounter = 0;
-let equalLengthStrings = "The words are the same length.";
-let differentLengthStrings = "The words are not the same length.";
+let inputWord1 = "Place your first word here:";
+let inputWord2 = "Place your second word here:";
+/* USER INPUT STRING DISPLAY */
+let equalLengthWords = "The words are the same length.";
+let differentLengthWords = "The words are not the same length.";
+let equalLengthStr = "The sentences are the same length.";
+let differentLengthStr = "The sentences are not the same length.";
+let sameInputLength = "Your inputs are the same length";
+let differentInputLength = "Your inputs are not the same length";
+let wordMessage = "Your word was:";
+let stringMessage = "Your sentence was:";
+let stringLengthMessage = "Letter count:";
+/* ERROR/SUCCESS VARIABLES */
 let errorString = "Wrong input";
 let successInput = 0;
-
-/* GET WORD INPUT */
-userString1 = prompt("Place your first word here:");
-console.log(userString1);
-userString2 = prompt("Place your second word here:");
-console.log(userString2);
-
-/* COMPARE WORD LENGTH */
-if (userString1 == null || userString2 == null){
-    console.log(errorString);
-}
-else {
-    if (userString1.length != 0 && userString2.length != 0){
-        if (userString1.length == userString2.length) {
-            console.log(equalLengthStrings);
-        }
-        else {
-            console.log(differentLengthStrings);
-        }  
-        successInput++;
-    }
-    else {
-        console.log(errorString);
-    }
-}
-
-/* CHALLENGE 1: WORD COUNT AND WORD DISPLAY*/
+/* LENGTH VARIABLES */
 let letterCountString1; 
 let letterCountString2; 
-let wordMessage = "Your word was:"
-let stringLengthMessage = "Letter count:" 
-
-/* erased for challenge 2
-if(successInput) {
-    letterCountString1 = userString1.length;
-    letterCountString2 = userString2.length;
-    console.log(wordMessage + " " + userString1 + ". " + stringLengthMessage + " " + letterCountString1);
-    console.log(wordMessage + " " + userString2 + ". " + stringLengthMessage + " " + letterCountString2);
-}
-*/
-
-/* CHALLENGE 2: SENTENCE COMPARISON*/
+/* SPACES VARIABLES */
 let containsSpacesStr1 = false;
 let containsSpacesStr2 = false;
 let spacesCounter = 0;
 let spacesStr1 = 0;
 let spacesStr2 = 0;
+/* SENTENCES VERIFICATION VARIABLES */
 let isSentenceStr1 = false;
 let isSentenceStr2 = false;
-stringMessage = "Your sentence was:"
 
+/* FUNCTIONS */
 function hasSpaces(str) {
     if (str.indexOf(' ') !== -1) {
       return true
@@ -82,6 +57,26 @@ function letterCounter (str, containsSpaces, spacesCounter) {
     }
 }
 
+/* GET WORD INPUT */
+userString1 = prompt(inputWord1);
+console.log(userString1);
+userString2 = prompt(inputWord2);
+console.log(userString2);
+
+/* INPUT VALIDATION */
+if (userString1 == null || userString2 == null){
+    console.log(errorString);
+}
+else {
+    if (userString1.length != 0 && userString2.length != 0){ 
+        successInput++;
+    }
+    else {
+        console.log(errorString);
+    }
+}
+
+/* COMPARE LENGTH */
 if (successInput) {
     containsSpacesStr1 = hasSpaces(userString1);
     if (containsSpacesStr1){
@@ -107,5 +102,37 @@ if (successInput) {
     }
     else {
         console.log(wordMessage + " " + userString2 + ". " + stringLengthMessage + " " + letterCountString2);
+    }
+    if (!isSentenceStr1 && !isSentenceStr2){
+        if (userString1.length == userString2.length) {
+            console.log(equalLengthWords);
+        }
+        else {
+            console.log(differentLengthWords);
+        } 
+    }
+    else if(isSentenceStr1 && isSentenceStr2){
+        if (letterCountString1 == letterCountString2){
+            console.log(equalLengthStr);
+        }
+        else {
+            console.log(differentLengthStr);
+        }
+    }
+    else if (isSentenceStr1 && !isSentenceStr2){
+        if(letterCountString1 == userString2.length) {
+            console.log(sameInputLength);
+        }
+        else {
+            console.log(differentInputLength);
+        }
+    }
+    else {
+        if(userString1.length == letterCountString2){
+            console.log(sameInputLength);
+        }
+        else {
+            console.log(differentInputLength);
+        }
     }
 }
